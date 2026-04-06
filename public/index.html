@@ -312,7 +312,121 @@ body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);d
 .legal-body h3{color:var(--text);font-size:15px;margin:16px 0 6px;}
 .legal-body p{margin-bottom:8px;}
 
-/* ── ANIMS ── */
+/* ── RESPONSIVE ── */
+@media (min-width: 600px) {
+  /* Tablet / iPad */
+  :root { --nav: 70px; }
+  .auth-wrap { max-width: 440px; }
+  .pw-body { max-width: 540px; }
+  .pw-plans { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+  .pw-plan { flex: 1; min-width: 160px; }
+  .ob-body { padding: 10px 32px 120px; max-width: 600px; margin: 0 auto; width: 100%; }
+  .ob-next { padding: 16px 32px 36px; }
+  .ob-q { font-size: 30px; }
+  .ob-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .ob-sport-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .stat-row { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .panel { padding: 20px 28px; max-width: 720px; margin: 0 auto; width: 100%; }
+  .home-hero { padding: 24px; }
+  .home-name { font-size: 28px; }
+  .topbar { padding: 0 28px; height: 58px; min-height: 58px; }
+  .tb-logo { font-size: 32px; }
+  .nb-ic { font-size: 22px; }
+  .nb-lb { font-size: 10px; }
+  .card { padding: 18px; }
+  .auth-logo-txt { font-size: 62px; }
+  .pw-logo { font-size: 66px; }
+  .sp-logo { font-size: 80px; }
+  .chat-wrap { max-width: 720px; margin: 0 auto; }
+  .drill-card { padding: 16px; }
+  .wt-body { max-width: 600px; margin: 0 auto; padding: 20px; }
+}
+
+@media (min-width: 900px) {
+  /* Desktop / large iPad landscape */
+  :root { --nav: 72px; }
+  body { flex-direction: row; }
+  #APP { flex-direction: row; }
+  .topbar { display: none; }
+
+  /* Side navigation instead of bottom nav */
+  .nav {
+    width: 220px;
+    min-width: 220px;
+    height: 100vh;
+    flex-direction: column;
+    border-top: none;
+    border-right: 1px solid var(--bd);
+    padding: 24px 0;
+    justify-content: flex-start;
+    gap: 4px;
+    order: -1;
+  }
+  .nav-ind {
+    width: 3px;
+    height: 14.28%;
+    left: auto !important;
+    right: 0;
+    top: 0;
+    border-radius: 2px 0 0 2px;
+    transition: top .25s cubic-bezier(.34,1.2,.64,1);
+  }
+  .nb {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 13px 24px;
+    border-radius: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  .nb-ic { font-size: 20px; width: 24px; text-align: center; }
+  .nb-lb { font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; }
+
+  /* Brand header inside sidebar */
+  .nav::before {
+    content: 'Athletiq';
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    padding: 0 24px 20px;
+    border-bottom: 1px solid var(--bd);
+    margin-bottom: 12px;
+    width: 100%;
+  }
+
+  .content {
+    flex: 1;
+    padding-bottom: 0;
+    overflow-y: auto;
+  }
+  .panel { max-width: 860px; padding: 28px 40px; }
+  .home-hero { padding: 28px 32px; }
+  .home-name { font-size: 32px; }
+  .stat-row { gap: 14px; }
+  .ob-body { max-width: 680px; padding: 16px 48px 120px; }
+  .chat-wrap { max-width: 860px; }
+  .drill-card { padding: 18px; }
+  .auth-wrap { max-width: 480px; }
+  .pw-body { max-width: 600px; }
+  .pw-plans { flex-direction: row; }
+  .pw-plan { flex: 1; }
+  .ob-grid { grid-template-columns: repeat(3, 1fr); }
+  .ob-sport-grid { grid-template-columns: repeat(4, 1fr); }
+  .auth-logo-txt { font-size: 72px; }
+  .pw-logo { font-size: 74px; }
+  .sp-logo { font-size: 90px; }
+}
+
+@media (min-width: 1200px) {
+  /* Wide desktop */
+  .panel { max-width: 960px; }
+  .chat-wrap { max-width: 960px; }
+  .nav { width: 240px; min-width: 240px; }
+  .nb-lb { font-size: 14px; }
+}
+
 @keyframes pop{0%{transform:scale(.7);opacity:0;}100%{transform:scale(1);opacity:1;}}
 @keyframes fup{0%{transform:translateY(16px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.6;}}
@@ -366,18 +480,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);d
       <div class="pw-plan sel" id="pp-w" onclick="pwSel('weekly',this)">
         <div class="pw-radio"></div>
         <div class="pw-plan-info"><div class="pw-plan-name">Weekly</div><div class="pw-plan-desc">Billed weekly · cancel anytime</div></div>
-        <div class="pw-plan-price"><div class="pw-plan-amt">$4.99</div><div class="pw-plan-per">/week</div></div>
+        <div class="pw-plan-price"><div class="pw-plan-amt">$5.99</div><div class="pw-plan-per">/week</div></div>
       </div>
       <div class="pw-plan" id="pp-m" onclick="pwSel('monthly',this)">
         <div class="pw-radio"></div>
         <div class="pw-plan-info"><div class="pw-plan-name">Monthly ⭐</div><div class="pw-plan-desc">Best value for most athletes</div></div>
-        <div class="pw-plan-price"><div class="pw-plan-amt">$9.99</div><div class="pw-plan-per">/month</div></div>
+        <div class="pw-plan-price"><div class="pw-plan-amt">$13.99</div><div class="pw-plan-per">/month</div></div>
         <div class="pw-pbadge">Popular</div>
       </div>
       <div class="pw-plan" id="pp-y" onclick="pwSel('yearly',this)">
         <div class="pw-radio"></div>
         <div class="pw-plan-info"><div class="pw-plan-name">Yearly 🏅</div><div class="pw-plan-desc">Lowest price · full year access</div></div>
-        <div class="pw-plan-price"><div class="pw-plan-amt">$55.99</div><div class="pw-plan-per">/year</div></div>
+        <div class="pw-plan-price"><div class="pw-plan-amt">$64.99</div><div class="pw-plan-per">/year</div></div>
       </div>
     </div>
     <button class="pw-cta" id="pw-cta" onclick="pwCheckout()">Start Training Now →</button>
@@ -409,7 +523,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);d
     <div class="ob-head">
       <button class="ob-bk" onclick="qBack()">←</button>
       <div class="ob-prog" id="ob-prog"></div>
-      <div class="ob-sn" id="ob-sn">1/8</div>
+      <div class="ob-sn" id="ob-sn">1/13</div>
     </div>
     <div class="ob-body">
       <!-- Q1: Name -->
@@ -487,6 +601,68 @@ body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);d
         <div class="ob-q">Your <span>position or style?</span></div>
         <div class="ob-hint">Optional — makes training even more specific.</div>
         <input class="ob-in" id="q-pos" placeholder="e.g. Point Guard, Freestyle, Striker..." maxlength="40" oninput="QD.position=this.value">
+      </div>
+      <!-- Q9: Biggest weakness -->
+      <div class="ob-step" id="qs9">
+        <div class="ob-tag">Self Assessment</div>
+        <div class="ob-q">Your biggest <span>weakness?</span></div>
+        <div class="ob-hint">We'll target this in your programme.</div>
+        <div class="ob-grid">
+          <div class="ob-gc" onclick="qCard('weakness','speed',this)"><div class="gci">⚡</div><div class="gcn">Speed</div><div class="gcd">Quickness & explosiveness</div></div>
+          <div class="ob-gc" onclick="qCard('weakness','strength',this)"><div class="gci">💪</div><div class="gcn">Strength</div><div class="gcd">Power & physicality</div></div>
+          <div class="ob-gc" onclick="qCard('weakness','endurance',this)"><div class="gci">🫁</div><div class="gcn">Endurance</div><div class="gcd">Stamina & cardio</div></div>
+          <div class="ob-gc" onclick="qCard('weakness','technique',this)"><div class="gci">🎯</div><div class="gcn">Technique</div><div class="gcd">Skill & precision</div></div>
+          <div class="ob-gc" onclick="qCard('weakness','mental',this)"><div class="gci">🧠</div><div class="gcn">Mental Game</div><div class="gcd">Focus & composure</div></div>
+          <div class="ob-gc" onclick="qCard('weakness','flexibility',this)"><div class="gci">🤸</div><div class="gcn">Flexibility</div><div class="gcd">Mobility & injury prevention</div></div>
+        </div>
+      </div>
+      <!-- Q10: Session length -->
+      <div class="ob-step" id="qs10">
+        <div class="ob-tag">Schedule</div>
+        <div class="ob-q">How long per <span>session?</span></div>
+        <div class="ob-hint">We'll fit your workouts to your schedule.</div>
+        <div class="ob-opts">
+          <div class="ob-opt" onclick="qSel('sessionLen','30',this)"><div class="ob-opt-ic">⏱️</div><div class="ob-opt-inf"><div class="ob-opt-n">30 minutes</div><div class="ob-opt-d">Quick, focused sessions</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('sessionLen','60',this)"><div class="ob-opt-ic">🕐</div><div class="ob-opt-inf"><div class="ob-opt-n">60 minutes</div><div class="ob-opt-d">Standard training block</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('sessionLen','90',this)"><div class="ob-opt-ic">🕑</div><div class="ob-opt-inf"><div class="ob-opt-n">90 minutes</div><div class="ob-opt-d">Full training session</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('sessionLen','120',this)"><div class="ob-opt-ic">🔥</div><div class="ob-opt-inf"><div class="ob-opt-n">2+ hours</div><div class="ob-opt-d">Elite volume training</div></div><div class="ob-opt-ck"></div></div>
+        </div>
+      </div>
+      <!-- Q11: Equipment -->
+      <div class="ob-step" id="qs11">
+        <div class="ob-tag">Equipment</div>
+        <div class="ob-q">What <span>equipment</span> do you have?</div>
+        <div class="ob-hint">Your drills will be tailored to what's available.</div>
+        <div class="ob-opts">
+          <div class="ob-opt" onclick="qSel('equipment','none',this)"><div class="ob-opt-ic">🏃</div><div class="ob-opt-inf"><div class="ob-opt-n">No equipment</div><div class="ob-opt-d">Bodyweight & open space only</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('equipment','basic',this)"><div class="ob-opt-ic">🏋️</div><div class="ob-opt-inf"><div class="ob-opt-n">Basic gym access</div><div class="ob-opt-d">Dumbbells, resistance bands</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('equipment','full',this)"><div class="ob-opt-ic">🏟️</div><div class="ob-opt-inf"><div class="ob-opt-n">Full gym + facility</div><div class="ob-opt-d">Full weights, track, field</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('equipment','sport',this)"><div class="ob-opt-ic">⚽</div><div class="ob-opt-inf"><div class="ob-opt-n">Sport facility</div><div class="ob-opt-d">Court, pool, pitch access</div></div><div class="ob-opt-ck"></div></div>
+        </div>
+      </div>
+      <!-- Q12: Injury history -->
+      <div class="ob-step" id="qs12">
+        <div class="ob-tag">Health</div>
+        <div class="ob-q">Any <span>injury history?</span></div>
+        <div class="ob-hint">We'll programme around your body.</div>
+        <div class="ob-opts">
+          <div class="ob-opt" onclick="qSel('injury','none',this)"><div class="ob-opt-ic">✅</div><div class="ob-opt-inf"><div class="ob-opt-n">No injuries</div><div class="ob-opt-d">Fully fit, no limitations</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('injury','minor',this)"><div class="ob-opt-ic">⚠️</div><div class="ob-opt-inf"><div class="ob-opt-n">Minor niggles</div><div class="ob-opt-d">Some soreness, manageable</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('injury','recovering',this)"><div class="ob-opt-ic">🩹</div><div class="ob-opt-inf"><div class="ob-opt-n">Recovering from injury</div><div class="ob-opt-d">Need modified training</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('injury','chronic',this)"><div class="ob-opt-ic">🔴</div><div class="ob-opt-inf"><div class="ob-opt-n">Chronic condition</div><div class="ob-opt-d">Ongoing issue to work around</div></div><div class="ob-opt-ck"></div></div>
+        </div>
+      </div>
+      <!-- Q13: Competition level -->
+      <div class="ob-step" id="qs13">
+        <div class="ob-tag">Competition</div>
+        <div class="ob-q">Do you <span>compete?</span></div>
+        <div class="ob-hint">Helps us set your performance benchmarks.</div>
+        <div class="ob-opts">
+          <div class="ob-opt" onclick="qSel('compete','none',this)"><div class="ob-opt-ic">🏠</div><div class="ob-opt-inf"><div class="ob-opt-n">No — training for myself</div><div class="ob-opt-d">Personal fitness & improvement</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('compete','casual',this)"><div class="ob-opt-ic">🤝</div><div class="ob-opt-inf"><div class="ob-opt-n">Casual / social leagues</div><div class="ob-opt-d">Weekend games, fun competitions</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('compete','amateur',this)"><div class="ob-opt-ic">🥈</div><div class="ob-opt-inf"><div class="ob-opt-n">Amateur competitions</div><div class="ob-opt-d">Regional or club level events</div></div><div class="ob-opt-ck"></div></div>
+          <div class="ob-opt" onclick="qSel('compete','semi',this)"><div class="ob-opt-ic">🥇</div><div class="ob-opt-inf"><div class="ob-opt-n">Semi-pro / Elite</div><div class="ob-opt-d">High-level competitive sport</div></div><div class="ob-opt-ck"></div></div>
+        </div>
       </div>
     </div>
     <div class="ob-next">
@@ -605,9 +781,9 @@ let currentUser = null;
 
 // ── STRIPE ──
 const STRIPE = {
-  weekly:  'https://buy.stripe.com/5kQ5kD57X03B4Bf4Uh7g400',
-  monthly: 'https://buy.stripe.com/4gM7sLfMB2bJ8Rv2M97g401',
-  yearly:  'https://buy.stripe.com/bJe28r0RH6rZffTcmJ7g402'
+  weekly:  'https://buy.stripe.com/8x2bIT1W30JbcQTf4L5sA00',
+  monthly: 'https://buy.stripe.com/aFa5kv1W3eA1dUX5ub5sA01',
+  yearly:  'https://buy.stripe.com/3cIfZ9fMTajL18b6yf5sA02'
 };
 
 // ── STATE ──
@@ -616,7 +792,7 @@ let S = {};
 let selPlan = 'weekly';
 let QD = {};
 let qStep = 1;
-const TOTAL_STEPS = 8;
+const TOTAL_STEPS = 13;
 
 function td(){return new Date().toISOString().split('T')[0];}
 function sv(){localStorage.setItem(SK,JSON.stringify(S));if(currentUser)saveUserData();}
@@ -926,7 +1102,7 @@ function pwSel(plan, el){
   selPlan=plan;
   document.querySelectorAll('.pw-plan').forEach(p=>p.classList.remove('sel'));
   el.classList.add('sel');
-  const labels={weekly:'Weekly $4.99/wk',monthly:'Monthly $9.99/mo',yearly:'Yearly $55.99/yr'};
+  const labels={weekly:'Weekly $5.99/wk',monthly:'Monthly $13.99/mo',yearly:'Yearly $64.99/yr'};
 }
 function pwCheckout(){
   const url=STRIPE[selPlan];
@@ -944,7 +1120,7 @@ function pwActivateLicKey(k){
 }
 function activate(plan,ms){
   const d=pwLd();d.plan=plan;d.exp=Date.now()+ms;d.activatedAt=Date.now();pwSv(d);
-  if(!S.name){showOB();}else{showApp();initApp();}
+  showApp();initApp();
   chime();toast('Welcome to Athletiq! ⚡');
 }
 
@@ -992,6 +1168,11 @@ function qNext(){
   if(qStep===5&&!QD.days){toast('Select training days');return;}
   if(qStep===6&&(!QD.age||QD.age<10)){toast('Enter your age');return;}
   if(qStep===7&&(!QD.weight||QD.weight<30)){toast('Enter your weight');return;}
+  if(qStep===9&&!QD.weakness){toast('Select your biggest weakness');return;}
+  if(qStep===10&&!QD.sessionLen){toast('Select session length');return;}
+  if(qStep===11&&!QD.equipment){toast('Select your equipment');return;}
+  if(qStep===12&&!QD.injury){toast('Select injury history');return;}
+  if(qStep===13&&!QD.compete){toast('Select competition level');return;}
   if(qStep===TOTAL_STEPS){qComplete();return;}
   document.getElementById('qs'+qStep).classList.remove('on');
   qStep++;
@@ -1024,6 +1205,11 @@ function qComplete(){
     weight:QD.weight||154,
     unit:QD.unit||'imperial',
     position:QD.position||'',
+    weakness:QD.weakness||'',
+    sessionLen:+(QD.sessionLen||60),
+    equipment:QD.equipment||'basic',
+    injury:QD.injury||'none',
+    compete:QD.compete||'none',
     xp:0,sessions:0,streak:0,lastDate:'',
     trainingDays:{},
     days_data:{},
@@ -1031,15 +1217,15 @@ function qComplete(){
     achievements:[]
   };
   sv();
-  // Loading animation
-  const msgs=['Building your training plan...','Calibrating sport drills...','Setting nutrition targets...','Almost ready...'];
+  // Loading animation then go to paywall
+  const msgs=['Analysing your profile...','Calibrating sport drills...','Setting nutrition targets...','Almost ready...'];
   let i=0;
   const fill=document.getElementById('load-fill');
   const txt=document.getElementById('load-txt');
   const iv=setInterval(()=>{
     i++;fill.style.width=(i/msgs.length*100)+'%';
     if(txt&&msgs[i])txt.textContent=msgs[i];
-    if(i>=msgs.length){clearInterval(iv);setTimeout(()=>{showApp();initApp();},400);}
+    if(i>=msgs.length){clearInterval(iv);setTimeout(()=>{showPaywall();},400);}
   },600);
 }
 
@@ -1087,7 +1273,11 @@ function sw(id,idx){
     if(nb)nb.classList.toggle('on',p===id);
   });
   const ni=document.getElementById('nav-ind');
-  if(ni)ni.style.left=(idx/6*100)+'%';
+  if(ni){
+    const isDesktop=window.innerWidth>=900;
+    if(isDesktop){ni.style.left='auto';ni.style.top=(idx/6*100)+'%';}
+    else{ni.style.top='0';ni.style.left=(idx/6*100)+'%';}
+  }
   const cnt=document.getElementById('cnt');
   if(cnt)cnt.scrollTop=0;
   if(id==='home')renderHome();
@@ -1495,7 +1685,7 @@ function renderSettings(){
   const pw=pwLd(),st=pwStatus();
   const sp=getSportInfo();
   const statusColors={paid:'var(--acc)',unpaid:'var(--red)'};
-  const planNames={weekly:'Weekly $4.99/wk',monthly:'Monthly $9.99/mo',yearly:'Yearly $55.99/yr'};
+  const planNames={weekly:'Weekly $5.99/wk',monthly:'Monthly $13.99/mo',yearly:'Yearly $64.99/yr'};
 
   let html=`<div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:800;margin-bottom:14px">⚙️ Settings</div>`;
 
@@ -1549,14 +1739,14 @@ function renderSettings(){
 
 // ── CANCEL SUB ──
 async function cancelSub(){
-  if(!confirm('Cancel subscription? You keep access until end of billing period.'))return;
+  if(!confirm('Cancel subscription?\n\n⚠️ No refunds will be issued. All charges are final.\n\nYou will keep access until the end of your current billing period.'))return;
   const pw=pwLd();
   try{
     const r=await fetch(API_BASE+'/api/cancel-sub',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:currentUser?.email||'unknown',userName:S.name,plan:pw.plan,sport:S.sport,level:S.level,sessions:S.sessions,streak:S.streak})});
     const d=await r.json();
-    if(d.ok){toast('Subscription cancelled. Access until '+d.accessUntil);}
-    else{alert('Could not cancel automatically.\n\nPlease cancel via Stripe or email fitpah.support.team@gmail.com');}
-  }catch(e){alert('Error. Email fitpah.support.team@gmail.com to cancel.');}
+    if(d.ok){toast('Subscription cancelled. No refund will be issued.');}
+    else{alert('Could not cancel automatically.\n\nPlease cancel via Stripe or email fitpah.support.team@gmail.com\n\nNote: No refunds will be issued.');}
+  }catch(e){alert('Error. Email fitpah.support.team@gmail.com to cancel.\n\nNote: No refunds will be issued.');}
 }
 
 // ── AUTH FUNCTIONS ──
@@ -1623,8 +1813,8 @@ function showLegal(type){
   document.getElementById('legal-title').textContent=type==='tos'?'Terms of Service':'Privacy Policy';
   document.getElementById('legal-body').innerHTML=type==='tos'?`
     <h3>1. Agreement</h3><p>By using Athletiq, you agree to these Terms. Athletiq is a premium sports training app. It is NOT a medical app and does not provide medical advice.</p>
-    <h3>2. Subscription</h3><p>Athletiq is premium-only. Plans: Weekly $4.99, Monthly $9.99, Yearly $55.99. All plans auto-renew. Cancel anytime in Settings before renewal date.</p>
-    <h3>3. Refunds</h3><p>All charges are non-refundable except where required by law. Contact fitpah.support.team@gmail.com within 7 days if you believe you were charged in error.</p>
+    <h3>2. Subscription</h3><p>Athletiq is premium-only. Plans: Weekly $5.99, Monthly $13.99, Yearly $64.99. All plans auto-renew. Cancel anytime in Settings before renewal date.</p>
+    <h3>3. Refunds</h3><p>All charges are strictly non-refundable. By subscribing you agree no refunds will be issued under any circumstances. You may cancel at any time to stop future charges — cancellation takes effect at the end of your current billing period and you retain access until then.</p>
     <h3>4. Use of Service</h3><p>You may not copy, reproduce or distribute any content from Athletiq. Training content is for personal use only.</p>
     <h3>5. Disclaimer</h3><p>Training programmes are algorithmically generated. Always consult a professional coach or doctor before starting a new training regime.</p>
     <h3>6. Contact</h3><p>fitpah.support.team@gmail.com</p>
@@ -1643,10 +1833,13 @@ function closeLegal(){document.getElementById('LEGAL').classList.remove('open');
 function bootApp(){
   S=ld();
   if(pwStatus()==='paid'){
-    if(S.name){showApp();initApp();}
-    else{showOB();}
-  }else{
+    showApp();initApp();
+  }else if(S.name){
+    // Completed onboarding but not yet paid
     showPaywall();
+  }else{
+    // Brand new user — do onboarding first
+    showOB();
   }
 }
 
